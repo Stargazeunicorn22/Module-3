@@ -6,7 +6,7 @@ def calculate_circumference(radius):
         raise ValueError("Radius cannot be negative.")
     
     # Using a high-precision approximation of Pi
-    pi = 22/7
+    pi = 3.141592653589793
     
     circumference = 2 * pi * radius
     return circumference
