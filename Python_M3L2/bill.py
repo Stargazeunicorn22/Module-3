@@ -1,11 +1,11 @@
-def total_cal(t):
-    bill = 50.00
-    amount = bill * (t/100)
-    total = bill + amount
-    print(f"---Restaurant Bill ---")
-    print(f"Base Bill:      ${bill:.2f}")
-    print(f"-----------------------------")
-    print(f"Total Paid : $ {total:.2f}")
+def total_cal(bill, tip_percentage):
+    tip_amount = bill * (tip_percentage / 100)
+    total_amount = bill + tip_amount
+    
+    print(f"--- Restaurant Bill ---")
+    print(f"Base Bill:   ${bill:.2f}")
+    print(f"Tip ({tip_percentage}%): ${tip_amount:.2f}")
+    print(f"-----------------------")
+    print(f"Total Paid:  ${total_amount:.2f}")
 
-a = total_cal(5)
-print(a)
+total_cal(65.50, 18)
