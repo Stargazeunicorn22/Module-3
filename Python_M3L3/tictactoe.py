@@ -16,8 +16,29 @@ def player_move(board):
         except ValueError:
             pass
 
-def computer_move(board):
+def computer_move(board, comp_symbol, p1_symbol):
+    win_conditions = [
+        (0, 1, 2), (3, 4, 5), (6, 7, 8),
+        (0, 3, 6), (1, 4, 7), (2, 5, 8),
+        (0, 4, 8), (2, 4, 6)
+    ]
+
+    for symbol in (comp_symbol, p1_symbol):
+        for a, b, c in win_conditions:
+            line = [board[a], board[b], board[c]]
+            if line.count(symbol) == 2 and line.count('X') + line.count('O') == 2:
+                for pos in (a, b, c):
+                    if board[pos] not in ['X', 'O']:
+                        return pos
+
     available_moves = [i for i in range(9) if board[i] not in ['X', 'O']]
+    if 4 in available_moves:
+        return 4
+
+    corners = [i for i in if i in available_moves]
+    if corners:
+        return __import__('random').choice(corners)
+
     return __import__('random').choice(available_moves)
 
 def play_game():
@@ -42,7 +63,7 @@ def play_game():
             active_symbol = p1_symbol
         else:
             print("Computer's Turn")
-            move_index = computer_move(board)
+            move_index = computer_move(board, comp_symbol, p1_symbol)
             active_symbol = comp_symbol
         
         board[move_index] = active_symbol
