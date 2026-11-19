@@ -1,6 +1,6 @@
 import random
 
-secret_number = random.randint(1, 10)
+num = random.randint(1, 10)
 max_attempts = 5
 
 print("Welcome to the Number Game! Guess a number between 1 and 10.")
@@ -12,15 +12,15 @@ for attempt in range(1, max_attempts + 1):
         print("Invalid input! Please enter a valid whole number.")
         continue
 
-    if user_guess == secret_number:
+    if user_guess == num:
         print(f"Congratulations! You guessed the right number in {attempt} attempt(s).")
         break
     else:
-        difference = abs(secret_number - user_guess)
+        difference = abs(num - user_guess)
         
         if difference <= 2:
             hint = "Almost close! You're very near."
-        elif user_guess < secret_number:
+        elif user_guess < num:
             hint = "Too low!"
         else:
             hint = "Too high!"
@@ -28,4 +28,4 @@ for attempt in range(1, max_attempts + 1):
         if attempt < max_attempts:
             print(f"Wrong guess. {hint} Try again!")
         else:
-            print(f"\nGame over! You've used all {max_attempts} attempts. The number was {secret_number}.")
+            print(f"\nGame over! You've used all {max_attempts} attempts. The number was {num}.")
